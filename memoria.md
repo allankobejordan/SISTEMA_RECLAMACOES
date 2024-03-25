@@ -31,7 +31,7 @@ O cliente submete a reclamação
 
 # banco de dados
 
-- clientes
+- clients
     - id (PK)
     - email (varchar 100)
     - nome (varchar 100) / null
