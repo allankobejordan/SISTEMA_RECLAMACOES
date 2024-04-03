@@ -4,30 +4,39 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col">
-            <?= form_open_multipart('/submit') ?>
-                <div class="mb-3">
+            <?= form_open_multipart('/submit', ['novalidate' => true]) ?>
+
+            <div class="d-flex justify-content-between gap-3">
+                <div class="col">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
+                    <input type="email" class="form-control" id="email" name="email" required value="<?= old('email')?>">
+                    <?= show_validation_error('email', $validation_errors) ?>
                 </div>
 
-                <div class="mb-3">
+                <div class="col">
                     <label for="name" class="form-label">Nome</label>
                     <input type="text" class="form-control" id="name" name="name">
                 </div>
+            </div>
 
-                <div class="mb-3">
+            <div class="row mb-3">
+                <div class="col-6">
                     <label for="area" class="form-label">Área de reclamação</label>
                     <select type="text" class="form-select" id="area" name="area" required>
                         <option value="1"> Àrea 1</option>
                         <option value="2"> Àrea 2</option>
                         <option value="3"> Àrea 3</option>
                     </select>
+                    <?= show_validation_error('area', $validation_errors) ?>
                 </div>
+            </div>
+
 
                 <div class="mb-3">
                     <label for="complaint" class="form-label">Área de texto para a reclamação *</label>
-                    <textarea type="text" class="form-control" id="complaint" name="complaint" required>
+                    <textarea type="text" class="form-control" id="complaint" rows="6" name="complaint" required>
                     </textarea>
+                    <?= show_validation_error('complaint', $validation_errors) ?>
                 </div>
 
                 <div class="mb-3">
